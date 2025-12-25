@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'VT323', monospace;
+      background: #000;
+      color: #fff;
+      display: flex;
+      height: 100vh;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 28px;
+      font-family: 'VT323', monospace;
+      text-transform: lowercase;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      padding: 40px;
+    }
+
+    .categories {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12.5%;
+    }
+
+    .category {
+      cursor: pointer;
+      font-size: 22px;
+      color: #fff;
+      text-transform: lowercase;
+    }
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+      gap: 10px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .projects.show {
+      max-height: 1000px;
+    }
+
+    .projects a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+      text-transform: lowercase;
+    }
+
+    .about-section {
+      position: absolute;
+      left: 75%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #000;
+      padding: 30px;
+      max-width: 600px;
+      display: none;
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    .about-section ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .about-section li {
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">leo</div>
+
+  <main>
+    <div class="categories">
+      <div class="category" onclick="toggleProjects('fashion')">fashion</div>
+      <div id="fashion" class="projects">
+        <a href="#">concept</a>
+        <a href="#">experimental</a>
+        <a href="#">functional</a>
+      </div>
+
+      <div class="category" onclick="toggleProjects('graphic')">graphic</div>
+      <div id="graphic" class="projects">
+        <a href="#">alcrux</a>
+        <a href="#">mijoi</a>
+      </div>
+
+      <div class="category" onclick="toggleProjects('product')">product</div>
+      <div id="product" class="projects">
+        <a href="#">cat house</a>
+        <a href="#">brush</a>
+        <a href="#">rings</a>
+        <a href="#">hair accessories</a>
+      </div>
+
+      <div class="category" onclick="toggleProjects('photography')">photography</div>
+      <div id="photography" class="projects">
+        <a href="#">nature</a>
+        <a href="#">concert</a>
+        <a href="#">fashion</a>
+        <a href="#">black and white</a>
+      </div>
+
+      <div class="category" onclick="toggleProjects('video')">video</div>
+      <div id="video" class="projects">
+        <a href="#">alcrux</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="aboutSection" class="about-section">
+    <ul>
+      <li>Fashion Design and Marketing student</li>
+      <li>Minors in Industrial Design and Photography</li>
+      <li>Experienced in: fashion design, photography, videography, graphic design, and digital marketing</li>
+      <li>Skilled with tools: Photoshop, Illustrator, After Effects, Clo3D, Blender, Rhino3D</li>
+      <li>Passionate about creating innovative, functional, and visually compelling projects</li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleProjects(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('show');
+    }
+
+    function toggleAbout() {
+      const about = document.getElementById('aboutSection');
+      about.style.display = (about.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
+
