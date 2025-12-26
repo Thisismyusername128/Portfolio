@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <style>
     body {
@@ -20,7 +22,6 @@
       top: 20px;
       right: 40px;
       font-size: 28px;
-      font-family: 'VT323', monospace;
       text-transform: lowercase;
     }
 
@@ -37,6 +38,7 @@
       flex-direction: column;
       gap: 8px;
       margin-top: 12.5%;
+      min-height: 80vh;
     }
 
     .category {
@@ -65,6 +67,25 @@
       color: #fff;
       font-size: 20px;
       text-transform: lowercase;
+    }
+
+    .about-button {
+      margin-top: auto;
+      cursor: pointer;
+      font-size: 22px;
+      color: #fff;
+      text-transform: lowercase;
+      background: transparent;
+      border: none;
+      outline: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .about-button:focus,
+    .about-button:active {
+      outline: none;
+      background: transparent;
     }
 
     .about-section {
@@ -129,6 +150,8 @@
       <div id="video" class="projects">
         <a href="#">alcrux</a>
       </div>
+
+      <div class="about-button" onclick="toggleAbout()">about</div>
     </div>
   </main>
 
@@ -155,4 +178,3 @@
   </script>
 </body>
 </html>
-
