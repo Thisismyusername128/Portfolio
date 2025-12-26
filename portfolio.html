@@ -71,9 +71,15 @@
       text-transform: lowercase;
     }
 
+    .projects img, .about-section img {
+      max-width: 300px;
+      margin: 5px 0;
+      border: 1px solid #fff;
+    }
+
     .about-button {
       position: absolute;
-      bottom: 11.1%; /* places button about 8/9 down */
+      bottom: 11.1%;
       cursor: pointer;
       font-size: 22px;
       color: #fff;
@@ -123,35 +129,49 @@
       <div class="category" onclick="toggleProjects('fashion')">fashion</div>
       <div id="fashion" class="projects">
         <a href="#">concept</a>
+        <img src="images/fashion1.jpg" alt="Concept Image">
         <a href="#">experimental</a>
+        <img src="images/fashion2.jpg" alt="Experimental Image">
         <a href="#">functional</a>
+        <img src="images/fashion3.jpg" alt="Functional Image">
       </div>
 
       <div class="category" onclick="toggleProjects('graphic')">graphic</div>
       <div id="graphic" class="projects">
         <a href="#">alcrux</a>
+        <img src="images/graphic1.jpg" alt="Alcrux Image">
         <a href="#">mijoi</a>
+        <img src="images/graphic2.jpg" alt="Mijoi Image">
       </div>
 
       <div class="category" onclick="toggleProjects('product')">product</div>
       <div id="product" class="projects">
         <a href="#">cat house</a>
+        <img src="images/product1.jpg" alt="Cat House">
         <a href="#">brush</a>
+        <img src="images/product2.jpg" alt="Brush">
         <a href="#">rings</a>
+        <img src="images/product3.jpg" alt="Rings">
         <a href="#">hair accessories</a>
+        <img src="images/product4.jpg" alt="Hair Accessories">
       </div>
 
       <div class="category" onclick="toggleProjects('photography')">photography</div>
       <div id="photography" class="projects">
         <a href="#">nature</a>
+        <img src="images/photo1.jpg" alt="Nature">
         <a href="#">concert</a>
+        <img src="images/photo2.jpg" alt="Concert">
         <a href="#">fashion</a>
+        <img src="images/photo3.jpg" alt="Fashion Photography">
         <a href="#">black and white</a>
+        <img src="images/photo4.jpg" alt="Black and White">
       </div>
 
       <div class="category" onclick="toggleProjects('video')">video</div>
       <div id="video" class="projects">
         <a href="#">alcrux</a>
+        <img src="images/video1.jpg" alt="Video Thumbnail">
       </div>
 
       <div class="about-button" onclick="toggleAbout()">about</div>
@@ -161,10 +181,15 @@
   <div id="aboutSection" class="about-section">
     <ul>
       <li>Fashion Design and Marketing student</li>
+      <img src="images/about1.jpg" alt="Fashion Design">
       <li>Minors in Industrial Design and Photography</li>
+      <img src="images/about2.jpg" alt="Industrial Design">
       <li>Experienced in: fashion design, photography, videography, graphic design, and digital marketing</li>
+      <img src="images/about3.jpg" alt="Digital Marketing">
       <li>Skilled with tools: Photoshop, Illustrator, After Effects, Clo3D, Blender, Rhino3D</li>
+      <img src="images/about4.jpg" alt="Tools">
       <li>Passionate about creating innovative, functional, and visually compelling projects</li>
+      <img src="images/about5.jpg" alt="Projects">
     </ul>
   </div>
 
