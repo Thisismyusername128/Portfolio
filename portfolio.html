@@ -29,7 +29,7 @@
     main {
       flex: 1;
       display: flex;
-      padding: 90px 60px 40px 60px; /* more space between sidebar and content */
+      padding: 90px 60px 40px 60px;
     }
 
     .categories {
@@ -50,7 +50,7 @@
 
     .about-button {
       position: absolute;
-      bottom: 0; /* moved the about button further down */
+      bottom: 0;
       cursor: pointer;
       font-size: 22px;
       color: #fff;
@@ -61,7 +61,7 @@
 
     #display-area {
       flex: 1;
-      margin-left: 60px; /* match increased left padding */
+      margin-left: 60px;
       padding-right: 40px;
       overflow-y: auto;
       overflow-x: hidden;
@@ -86,7 +86,7 @@
       gap: 40px;
       align-items: start;
       max-width: 900px;
-      margin: 250px auto; /* lowered the about content further */
+      margin: 250px auto;
     }
 
     .about-layout.reverse {
@@ -121,8 +121,7 @@
       height: auto;
       border: 1px solid #fff;
     }
-
-</style>
+  </style>
 </head>
 <body>
   <div class="logo">leo</div>
@@ -139,29 +138,46 @@
   </main>
 
   <template id="aboutContent">
-  <div class="about-layout reverse">
-    <div class="about-text">
-      <ul>
-        <li>Fashion Design and Marketing student</li>
-        <li>Minors in Industrial Design and Photography</li>
-        <li>Experienced in fashion design, photography, videography, graphic design, and digital marketing</li>
-        <li>Skilled with tools: Photoshop, Illustrator, After Effects, Clo3D, Blender, Rhino3D</li>
-        <li>Passionate about creating innovative, functional, and visually compelling projects</li>
-      </ul>
+    <div class="about-layout reverse">
+      <div class="about-text">
+        <ul>
+          <li>Fashion Design and Marketing student</li>
+          <li>Minors in Industrial Design and Photography</li>
+          <li>Experienced in fashion design, photography, videography, graphic design, and digital marketing</li>
+          <li>Skilled with tools: Photoshop, Illustrator, After Effects, Clo3D, Blender, Rhino3D</li>
+          <li>Passionate about creating innovative, functional, and visually compelling projects</li>
+        </ul>
+      </div>
+      <div class="about-image">
+        <img src="images/about-main.jpg" alt="About image">
+      </div>
     </div>
-    <div class="about-image">
-      <img src="images/about-main.jpg" alt="About image">
-    </div>
-  </div>
   </template>
 
   <script>
     const portfolio = {
-      fashion: ["images/fashion1.jpg","images/fashion2.jpg","images/fashion3.jpg"],
-      graphic: ["images/graphic1.jpg","images/graphic2.jpg"],
-      product: ["images/product3.jpg","images/product4.jpg"],
-      photography: ["images/photo1.jpg","images/photo2.jpg","images/photo3.jpg","images/photo4.jpg"],
-      video: ["images/video1.jpg"]
+      fashion: [
+        "images/fashion/fashion-1.jpg",
+        "images/fashion/fashion-2.jpg",
+        "images/fashion/fashion-3.jpg"
+      ],
+      graphic: [
+        "images/graphic/graphic-1.jpg",
+        "images/graphic/graphic-2.jpg"
+      ],
+      product: [
+        "images/product/product-1.jpg",
+        "images/product/product-2.jpg"
+      ],
+      photography: [
+        "images/photography/photo-1.jpg",
+        "images/photography/photo-2.jpg",
+        "images/photography/photo-3.jpg",
+        "images/photography/photo-4.jpg"
+      ],
+      video: [
+        "images/video/video-1.jpg"
+      ]
     };
 
     function showCategory(category) {
@@ -183,5 +199,6 @@
   </script>
 </body>
 </html>
+
 
 
