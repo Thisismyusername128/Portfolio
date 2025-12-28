@@ -29,7 +29,7 @@
     main {
       flex: 1;
       display: flex;
-      padding: 90px 20px 40px 20px;
+      padding: 90px 60px 40px 60px; /* more space between sidebar and content */
     }
 
     .categories {
@@ -50,7 +50,7 @@
 
     .about-button {
       position: absolute;
-      bottom: 5%; /* moved the about button lower */
+      bottom: 0; /* moved the about button further down */
       cursor: pointer;
       font-size: 22px;
       color: #fff;
@@ -61,7 +61,7 @@
 
     #display-area {
       flex: 1;
-      margin-left: 20px;
+      margin-left: 60px; /* match increased left padding */
       padding-right: 40px;
       overflow-y: auto;
       overflow-x: hidden;
@@ -86,7 +86,7 @@
       gap: 40px;
       align-items: start;
       max-width: 900px;
-      margin: 150px auto; /* moved about content lower to match the lower button */
+      margin: 250px auto; /* lowered the about content further */
     }
 
     .about-layout.reverse {
@@ -183,3 +183,5 @@
   </script>
 </body>
 </html>
+
+
