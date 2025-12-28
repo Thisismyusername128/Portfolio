@@ -73,8 +73,9 @@
       justify-items: center;
     }
 
-    #display-area img {
+    #display-area img, #display-area model-viewer {
       width: 100%;
+      max-width: 400px;
       height: auto;
       border: 1px solid #fff;
       object-fit: cover;
@@ -122,6 +123,7 @@
       border: 1px solid #fff;
     }
   </style>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <div class="logo">leo</div>
@@ -162,7 +164,9 @@
         "Images/fashion/fashion-3.png"
       ],
       graphic: [],
-      product: [],
+      product: [
+        "Images/product/product-model.glb"
+      ],
       photography: [],
       video: []
     };
@@ -170,10 +174,20 @@
     function showCategory(category) {
       const display = document.getElementById('display-area');
       display.innerHTML = '';
-      portfolio[category].forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        display.appendChild(img);
+      portfolio[category].forEach(item => {
+        if(item.endsWith('.glb')) {
+          const modelViewer = document.createElement('model-viewer');
+          modelViewer.src = item;
+          modelViewer.alt = '3D Product';
+          modelViewer.setAttribute('auto-rotate', '');
+          modelViewer.setAttribute('camera-controls', '');
+          modelViewer.setAttribute('background-color', '#000');
+          display.appendChild(modelViewer);
+        } else {
+          const img = document.createElement('img');
+          img.src = item;
+          display.appendChild(img);
+        }
       });
     }
 
