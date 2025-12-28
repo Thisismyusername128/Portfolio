@@ -15,6 +15,7 @@
       color: #fff;
       display: flex;
       height: 100vh;
+      overflow-x: hidden;
     }
 
     .logo {
@@ -28,8 +29,7 @@
     main {
       flex: 1;
       display: flex;
-      align-items: flex-start;
-      padding: 40px;
+      padding: 90px 20px 40px 20px;
     }
 
     .categories {
@@ -37,10 +37,8 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: 12.5%;
-      min-height: 80vh;
-      justify-content: flex-start;
       position: relative;
+      margin-top: 12.5%;
     }
 
     .category {
@@ -50,158 +48,137 @@
       text-transform: lowercase;
     }
 
-    .projects {
-      display: flex;
-      flex-direction: column;
-      margin-left: 20px;
-      gap: 10px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-    }
-
-    .projects.show {
-      max-height: 1000px;
-    }
-
-    .projects a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 20px;
-      text-transform: lowercase;
-    }
-
-    .projects img, .about-section img {
-      max-width: 300px;
-      margin: 5px 0;
-      border: 1px solid #fff;
-    }
-
     .about-button {
       position: absolute;
-      bottom: 11.1%;
+      bottom: 5%; /* moved the about button lower */
       cursor: pointer;
       font-size: 22px;
       color: #fff;
       text-transform: lowercase;
       background: transparent;
       border: none;
-      outline: none;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
     }
 
-    .about-button:focus,
-    .about-button:active {
-      outline: none;
-      background: transparent;
+    #display-area {
+      flex: 1;
+      margin-left: 20px;
+      padding-right: 40px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: calc(100vh - 120px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      align-content: start;
+      justify-items: center;
     }
 
-    .about-section {
-      position: absolute;
-      left: 75%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: #000;
-      padding: 30px;
-      max-width: 600px;
-      display: none;
-      font-size: 18px;
-      line-height: 1.8;
-      text-align: right;
+    #display-area img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #fff;
+      object-fit: cover;
     }
 
-    .about-section ul {
-      list-style-type: disc;
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+      max-width: 900px;
+      margin: 150px auto; /* moved about content lower to match the lower button */
+    }
+
+    .about-layout.reverse {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .about-text {
+      order: 1;
+    }
+
+    .about-layout.reverse .about-text {
+      order: 2;
+    }
+
+    .about-image {
+      order: 2;
+    }
+
+    .about-layout.reverse .about-image {
+      order: 1;
+    }
+
+    .about-text ul {
+      list-style: disc;
       padding-left: 20px;
+      font-size: 20px;
+      line-height: 1.8;
     }
 
-    .about-section li {
-      margin-bottom: 12px;
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #fff;
     }
-  </style>
+
+</style>
 </head>
 <body>
   <div class="logo">leo</div>
-
   <main>
     <div class="categories">
-      <div class="category" onclick="toggleProjects('fashion')">fashion</div>
-      <div id="fashion" class="projects">
-        <a href="#">concept</a>
-        <img src="images/fashion1.jpg" alt="Concept Image">
-        <a href="#">experimental</a>
-        <img src="images/fashion2.jpg" alt="Experimental Image">
-        <a href="#">functional</a>
-        <img src="images/fashion3.jpg" alt="Functional Image">
-      </div>
-
-      <div class="category" onclick="toggleProjects('graphic')">graphic</div>
-      <div id="graphic" class="projects">
-        <a href="#">alcrux</a>
-        <img src="images/graphic1.jpg" alt="Alcrux Image">
-        <a href="#">mijoi</a>
-        <img src="images/graphic2.jpg" alt="Mijoi Image">
-      </div>
-
-      <div class="category" onclick="toggleProjects('product')">product</div>
-      <div id="product" class="projects">
-        <a href="#">cat house</a>
-        <img src="images/product1.jpg" alt="Cat House">
-        <a href="#">brush</a>
-        <img src="images/product2.jpg" alt="Brush">
-        <a href="#">rings</a>
-        <img src="images/product3.jpg" alt="Rings">
-        <a href="#">hair accessories</a>
-        <img src="images/product4.jpg" alt="Hair Accessories">
-      </div>
-
-      <div class="category" onclick="toggleProjects('photography')">photography</div>
-      <div id="photography" class="projects">
-        <a href="#">nature</a>
-        <img src="images/photo1.jpg" alt="Nature">
-        <a href="#">concert</a>
-        <img src="images/photo2.jpg" alt="Concert">
-        <a href="#">fashion</a>
-        <img src="images/photo3.jpg" alt="Fashion Photography">
-        <a href="#">black and white</a>
-        <img src="images/photo4.jpg" alt="Black and White">
-      </div>
-
-      <div class="category" onclick="toggleProjects('video')">video</div>
-      <div id="video" class="projects">
-        <a href="#">alcrux</a>
-        <img src="images/video1.jpg" alt="Video Thumbnail">
-      </div>
-
+      <div class="category" onclick="showCategory('fashion')">fashion</div>
+      <div class="category" onclick="showCategory('graphic')">graphic</div>
+      <div class="category" onclick="showCategory('product')">product</div>
+      <div class="category" onclick="showCategory('photography')">photography</div>
+      <div class="category" onclick="showCategory('video')">video</div>
       <div class="about-button" onclick="toggleAbout()">about</div>
     </div>
+    <div id="display-area"></div>
   </main>
 
-  <div id="aboutSection" class="about-section">
-    <ul>
-      <li>Fashion Design and Marketing student</li>
-      <img src="images/about1.jpg" alt="Fashion Design">
-      <li>Minors in Industrial Design and Photography</li>
-      <img src="images/about2.jpg" alt="Industrial Design">
-      <li>Experienced in: fashion design, photography, videography, graphic design, and digital marketing</li>
-      <img src="images/about3.jpg" alt="Digital Marketing">
-      <li>Skilled with tools: Photoshop, Illustrator, After Effects, Clo3D, Blender, Rhino3D</li>
-      <img src="images/about4.jpg" alt="Tools">
-      <li>Passionate about creating innovative, functional, and visually compelling projects</li>
-      <img src="images/about5.jpg" alt="Projects">
-    </ul>
+  <template id="aboutContent">
+  <div class="about-layout reverse">
+    <div class="about-text">
+      <ul>
+        <li>Fashion Design and Marketing student</li>
+        <li>Minors in Industrial Design and Photography</li>
+        <li>Experienced in fashion design, photography, videography, graphic design, and digital marketing</li>
+        <li>Skilled with tools: Photoshop, Illustrator, After Effects, Clo3D, Blender, Rhino3D</li>
+        <li>Passionate about creating innovative, functional, and visually compelling projects</li>
+      </ul>
+    </div>
+    <div class="about-image">
+      <img src="images/about-main.jpg" alt="About image">
+    </div>
   </div>
+  </template>
 
   <script>
-    function toggleProjects(id) {
-      const section = document.getElementById(id);
-      section.classList.toggle('show');
+    const portfolio = {
+      fashion: ["images/fashion1.jpg","images/fashion2.jpg","images/fashion3.jpg"],
+      graphic: ["images/graphic1.jpg","images/graphic2.jpg"],
+      product: ["images/product3.jpg","images/product4.jpg"],
+      photography: ["images/photo1.jpg","images/photo2.jpg","images/photo3.jpg","images/photo4.jpg"],
+      video: ["images/video1.jpg"]
+    };
+
+    function showCategory(category) {
+      const display = document.getElementById('display-area');
+      display.innerHTML = '';
+      portfolio[category].forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        display.appendChild(img);
+      });
     }
 
     function toggleAbout() {
-      const about = document.getElementById('aboutSection');
-      about.style.display = (about.style.display === 'block') ? 'none' : 'block';
+      const display = document.getElementById('display-area');
+      display.innerHTML = '';
+      const tpl = document.getElementById('aboutContent');
+      display.appendChild(tpl.content.cloneNode(true));
     }
   </script>
 </body>
