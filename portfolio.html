@@ -76,7 +76,7 @@
     #display-area img, #display-area model-viewer {
       width: 100%;
       max-width: 400px;
-      height: auto;
+      height: 400px;
       border: 1px solid #fff;
       object-fit: cover;
     }
@@ -173,19 +173,34 @@
 
     function showCategory(category) {
       const display = document.getElementById('display-area');
-      display.innerHTML = '';
+      display.innerHTML = ''; // Clear previous content
+
       portfolio[category].forEach(item => {
-        if(item.endsWith('.glb')) {
+        if (item.endsWith('.glb')) {
+          // Create 3D model viewer
           const modelViewer = document.createElement('model-viewer');
           modelViewer.src = item;
           modelViewer.alt = '3D Product';
           modelViewer.setAttribute('auto-rotate', '');
           modelViewer.setAttribute('camera-controls', '');
-          modelViewer.setAttribute('background-color', '#000');
+          modelViewer.setAttribute('background-color', '#000000');
+          modelViewer.setAttribute('shadow-intensity', '1');
+          modelViewer.setAttribute('ar', '');
+          modelViewer.style.width = '100%';
+          modelViewer.style.maxWidth = '400px';
+          modelViewer.style.height = '400px';
+          modelViewer.style.border = '1px solid #fff';
           display.appendChild(modelViewer);
         } else {
+          // Create image element
           const img = document.createElement('img');
           img.src = item;
+          img.alt = category + ' image';
+          img.style.width = '100%';
+          img.style.maxWidth = '400px';
+          img.style.height = '400px';
+          img.style.objectFit = 'cover';
+          img.style.border = '1px solid #fff';
           display.appendChild(img);
         }
       });
@@ -200,6 +215,5 @@
   </script>
 </body>
 </html>
-
 
 
